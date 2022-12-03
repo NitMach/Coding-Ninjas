@@ -1,0 +1,48 @@
+
+public class Solution {
+
+	public static void findLargest(int mat[][]){
+		//Your code goes here
+		int r = mat.length;
+		if(r==0){
+			System.out.print("row "+0+" "+Integer.MIN_VALUE);
+			return;
+		}
+		int c = mat[0].length;
+		int r_max =0;
+		int r_index = 0;
+		for(int i = 0;i<r;i++){
+			int sum = 0;
+			for(int j = 0;j<c;j++){
+				sum = sum+mat[i][j];
+			}
+			if(r_max<sum){
+				r_max=sum;
+				r_index = i;
+			}
+		} 
+
+
+		//COLUMN 
+		int c_max = 0;
+		int c_index = 0;
+		for(int j = 0;j<c;j++){
+			int sum = 0;
+			for(int i = 0;i<r;i++){
+				sum = sum+mat[i][j];
+			}
+			if(c_max<sum){
+				c_max=sum;
+				c_index = j;
+			}
+		} 
+
+		if(c_max>r_max){
+		System.out.print("column "+c_index+" "+c_max);
+		}else{
+		System.out.print("row "+r_index+" "+r_max);
+		}
+	
+	}
+
+}
